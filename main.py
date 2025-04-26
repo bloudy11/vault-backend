@@ -3,6 +3,7 @@ from flask_cors import CORS
 from cryptography.fernet import Fernet
 import base64
 import hashlib
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -80,6 +81,11 @@ def delete_item():
 def hello():
     return jsonify({"message": "Vault backend is running!"})
 
+
+
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    port = int(os.environ.get('PORT', 5001))
+    app.run(host='0.0.0.0', port=port)
+#if __name__ == '__main__':
+    #app.run(port=5001, debug=True)
 
