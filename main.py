@@ -81,6 +81,9 @@ def delete_item():
 def hello():
     return jsonify({"message": "Vault backend is running!"})
 
+@app.route('/', methods=['GET'])
+def home():
+    return "Vault Backend is running!"
 
 
 if __name__ == '__main__':
